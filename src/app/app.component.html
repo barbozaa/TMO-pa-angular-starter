@@ -24,11 +24,9 @@
     </div>
   </div>
   <hr />
-  <h4 *ngIf="recipes.length === 0">There are no recipes to list.</h4>
+  <span *ngIf="recipes.length === 0">There are no recipes to list.</span>
   <div *ngFor="let recipe of recipes" class="recipe" role="listitem">
-    <div>
-      Recipe Name: 
-      <strong>{{ recipe.name }}</strong>
+    <div>Recipe Name: <strong>{{ recipe.name }}</strong>
     </div>
     <div style="margin-top: 1rem;">
       <div>Recipe Instructions:</div>
