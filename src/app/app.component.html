@@ -1,5 +1,38 @@
 <div>
   <h1 class="doNotRemoveMe">Hello world.</h1>
   <!-- ^ Do not remove this element ^ -->
+  <div style="display: flex; justify-content: center;">
+    <div>
+      <h1>My Recipes</h1>
+      <button class="button-style" *ngIf="!isFormVisible" (click)="isFormVisible = !isFormVisible">Add Recipe</button>
+      <h4 *ngIf="isFormHasErrors">Please complete the form</h4>
+      <div *ngIf="isFormVisible" (ngSubmit)="$event.preventDefault()">
+        <div style="margin-bottom: 1rem;">
+          <label for="input-recipe" style="margin-right: 3rem;">Recipe Name:</label>
+          <input type="text" name="input-recipe" #recipeName style="width: 15.6rem;" placeholder="Enter Recipe Name" />
+        </div>
+        <div>
+          <label for="input-instructions" style="margin-right: 0.6rem;">Recipe Instructions:</label>
+          <textarea #recipeInstructions name="input-instructions" style="vertical-align: middle;" rows="4" cols="30"
+            placeholder="Enter Recipe Instructions"></textarea>
+        </div>
+        <div>
+          <button style="margin-left: 15rem; margin-top: 1rem;" class="button-style"
+            (click)="onSubmit(recipeName.value, recipeInstructions.value)">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <p *ngIf="recipes.length === 0">There are not recipes to list.</p>
+  <div *ngFor="let recipe of recipes" class="recipe">
+    <div>
+      Recipe Name: 
+      <strong>{{ recipe.name }}</strong>
+    </div>
+    <div style="margin-top: 1rem;">
+      <div>Recipe Instructions:</div>
+      {{ recipe.instructions }}
+    </div>
+  </div>
 </div>
- 

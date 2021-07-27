@@ -1,3 +1,14 @@
 .doNotRemoveMe {
   visibility: hidden;
 }
+
+.button-style {
+  width: 10rem;
+  border-radius: 9999px;
+}
+
+.recipe {
+  margin-top: 1rem;
+  box-shadow: 5px 5px 15px 5px #000000;
+  padding: 1rem; border-radius: 10px;
+}
