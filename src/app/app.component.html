@@ -6,25 +6,25 @@
       <h1>My Recipes</h1>
       <button class="button-style" *ngIf="!isFormVisible" (click)="isFormVisible = !isFormVisible">Add Recipe</button>
       <h4 *ngIf="isFormHasErrors">Please complete the form</h4>
-      <div *ngIf="isFormVisible" (ngSubmit)="$event.preventDefault()">
+      <form *ngIf="isFormVisible" (ngSubmit)="$event.preventDefault()">
         <div style="margin-bottom: 1rem;">
-          <label for="input-recipe" style="margin-right: 3rem;">Recipe Name:</label>
-          <input type="text" name="input-recipe" #recipeName style="width: 15.6rem;" placeholder="Enter Recipe Name" />
+          <label for="Recipe name" style="margin-right: 3rem;">Recipe Name:</label>
+          <input type="text" name="Recipe name" aria-label="Recipe name" role="textbox" #recipeName style="width: 15.6rem;" placeholder="Enter Recipe Name" />
         </div>
         <div>
-          <label for="input-instructions" style="margin-right: 0.6rem;">Recipe Instructions:</label>
-          <textarea #recipeInstructions name="input-instructions" style="vertical-align: middle;" rows="4" cols="30"
+          <label for="Recipe instructions" style="margin-right: 0.6rem;">Recipe Instructions:</label>
+          <textarea #recipeInstructions role="textbox" name="Recipe instructions" aria-label="Recipe instructions" style="vertical-align: middle;" rows="4" cols="30"
             placeholder="Enter Recipe Instructions"></textarea>
         </div>
         <div>
-          <button style="margin-left: 15rem; margin-top: 1rem;" class="button-style"
+          <button aria-label="" style="margin-left: 15rem; margin-top: 1rem;" class="button-style"
             (click)="onSubmit(recipeName.value, recipeInstructions.value)">Save</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <hr />
-  <p *ngIf="recipes.length === 0">There are not recipes to list.</p>
+  <p *ngIf="recipes.length === 0">There are no recipes to list.</p>
   <div *ngFor="let recipe of recipes" class="recipe">
     <div>
       Recipe Name: 
