@@ -17,15 +17,15 @@
             placeholder="Enter Recipe Instructions"></textarea>
         </div>
         <div>
-          <button aria-label="" style="margin-left: 15rem; margin-top: 1rem;" class="button-style"
+          <button aria-label="submit button" style="margin-left: 15rem; margin-top: 1rem;" class="button-style"
             (click)="onSubmit(recipeName.value, recipeInstructions.value)">Save</button>
         </div>
       </form>
     </div>
   </div>
   <hr />
-  <p *ngIf="recipes.length === 0">There are no recipes to list.</p>
-  <div *ngFor="let recipe of recipes" class="recipe">
+  <h4 *ngIf="recipes.length === 0">There are no recipes to list.</h4>
+  <div *ngFor="let recipe of recipes" class="recipe" role="listitem">
     <div>
       Recipe Name: 
       <strong>{{ recipe.name }}</strong>
