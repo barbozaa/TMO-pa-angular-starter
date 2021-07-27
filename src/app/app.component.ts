@@ -16,6 +16,14 @@ export class AppComponent {
   isFormVisible = false;
   isFormHasErrors = false;
 
+  /**
+   * On Submit
+   * 
+   * @summary This function is getting call by the submit button
+   * @param name: string
+   * @param instructions: string
+   * @returns void 
+   */
   onSubmit(name: string, instructions: string): void {
     if (name && instructions) {
       this.recipes.unshift({ name, instructions });
